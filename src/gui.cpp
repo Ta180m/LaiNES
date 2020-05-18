@@ -1,7 +1,6 @@
 #include <csignal>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include "Sound_Queue.h"
 #include "apu.hpp"
 #include "cartridge.hpp"
 #include "cpu.hpp"
@@ -18,7 +17,7 @@ SDL_Texture* gameTexture;
 SDL_Texture* background;
 TTF_Font* font;
 u8 const* keys;
-Sound_Queue* soundQueue;
+//Sound_Queue* soundQueue;
 SDL_Joystick* joystick[] = { nullptr, nullptr };
 
 // Menus:
@@ -51,9 +50,9 @@ void init()
     for (int i = 0; i < SDL_NumJoysticks(); i++)
         joystick[i] = SDL_JoystickOpen(i);
 
-    APU::init();
-    soundQueue = new Sound_Queue;
-    soundQueue->init(96000);
+    //APU::init();
+    //soundQueue = new Sound_Queue;
+    //soundQueue->init(96000);
 
     // Initialize graphics structures:
     window      = SDL_CreateWindow  ("LaiNES",
@@ -203,10 +202,10 @@ void new_frame(u32* pixels)
     SDL_UpdateTexture(gameTexture, NULL, pixels, WIDTH * sizeof(u32));
 }
 
-void new_samples(const blip_sample_t* samples, size_t count)
+/*void new_samples(const blip_sample_t* samples, size_t count)
 {
     soundQueue->write(samples, count);
-}
+}*/
 
 /* Render the screen */
 void render()
