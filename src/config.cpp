@@ -1,5 +1,6 @@
+#include <direct.h>
 #include <cstdlib>
-#include <SimpleIni.h>
+#include "SimpleIni.h"
 #include "config.hpp"
 #include "gui.hpp"
 
@@ -49,7 +50,7 @@ const char* get_config_path(char* buf, int buflen)
     snprintf(homepath, sizeof(homepath), "%s/.config", home);
 
     /* Then, .config as a folder */
-    int res = mkdir(homepath, CONFIG_DIR_DEFAULT_MODE);
+    int res = _mkdir(homepath);
     int err = errno;
 
     if (res == -1 && err != EEXIST)
@@ -58,7 +59,7 @@ const char* get_config_path(char* buf, int buflen)
     snprintf(path, sizeof(path), "%s/%s", homepath, CONFIG_DIR_NAME);
 
     /* Finally, CONFIG_DIR_NAME as a sub-folder */
-    res = mkdir(path, CONFIG_DIR_DEFAULT_MODE);
+    res = _mkdir(path);
     err = errno;
 
     if (res == -1 && err != EEXIST)

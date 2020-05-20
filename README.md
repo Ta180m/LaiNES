@@ -54,6 +54,11 @@ scons
 ./laines
 ```
 
+### Windows
+```sh
+g++ *.cpp -o laines -IC:\mingw\include\SDL2 -LC:\mingw\lib -w -Wl,-subsystem,windows -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -O3
+```
+
 ## Usage
 The emulator comes bundled with a simple GUI to navigate the filesystem and set preferences. Use arrow keys and Enter to operate it. ESC toggles between emulation and menu.
 

@@ -3,7 +3,7 @@
 #include <sys/stat.h>
 #include <SDL2/SDL.h>
 
-#define CONFIG_DIR_DEFAULT_MODE      S_IRWXU | S_IRGRP |  S_IXGRP | S_IROTH | S_IXOTH
+#define CONFIG_DIR_DEFAULT_MODE      _S_IREAD | _S_IWRITE
 #define USE_CONFIG_DIR true
 #define CONFIG_DIR_NAME "LaiNES" 
 #define CONFIG_FALLBACK ".laines-settings"

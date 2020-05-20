@@ -2,6 +2,7 @@
 #include "cpu.hpp"
 #include "gui.hpp"
 #include "ppu.hpp"
+#include <cstring>
 
 namespace PPU {
 #include "palette.inc"
